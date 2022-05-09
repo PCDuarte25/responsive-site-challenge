@@ -84,9 +84,6 @@
     justify-content: space-between;
 }
 
-/* .geral-info {
-    
-} */
 
 .geral-info p {
     margin: 0;
@@ -99,7 +96,6 @@
     font-weight: 400;
     font-size: 0.875rem;
     color: #725C5C;
-    /* background-color: blue; */
     line-height: 16px;
 }
 
@@ -109,7 +105,6 @@
     font-weight: 400;
     font-size: 1.375rem;
     color: #725C5C;
-    /* background-color: orange; */
     line-height: 26px;
 }
 
@@ -119,7 +114,6 @@
     font-weight: 400;
     font-size: 0.875rem;
     color: #725C5C;
-    /* background-color: red; */
     line-height: 16px;
     margin-bottom: 5px;
 }
@@ -221,9 +215,14 @@
 }
 
 .hero-main-content {
-    display: grid;
-    grid-template-columns: 48.94rem 1fr;
-    gap: 2.87rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 1.875rem;
+}
+
+.hero-main-video {
+    flex: 0 1 48.94rem;
 }
 
 .hero-main-sidetab {
@@ -280,8 +279,10 @@
 }
 
 .details {
+    margin-top: 8px;
     border: 1px solid #ECECEC;
     border-radius: 3px;
+    height: 439px;
 }
 
 .details-header {
@@ -358,4 +359,117 @@
     border-radius: 5px;
     width: 3px;
     height: 367px;
+}
+
+.video {
+    position: relative;
+    background: rgba(141, 54, 6, 0.5);
+    border-radius: 3px;
+    width: 783px;
+    height: 439px;
+}
+
+.video-container {
+    position: absolute;
+    z-index: -1;
+}
+
+.video-container img {
+    position: absolute;
+}
+
+.content-p1 {
+    position: absolute;
+    top: 35px;
+    left: 32px;
+}
+
+.content-p1 p {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 25px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+.content-p2 {
+    position: absolute;
+    bottom: 42px;
+    left: 132px;
+}
+
+.content-p2 p {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    line-height: 25px;
+}
+
+.content-p2 p:nth-child(1) {
+    font-size: 34px;
+}
+
+.content-p2 p:nth-child(2) {
+    font-size: 20px;
+}
+
+.content-master {
+    position: absolute;
+    border-radius: 50%;
+    outline: #ED7839 solid 1px;
+    outline-offset: 2px;
+    bottom: 52px;
+    left: 31px;
+}
+
+.summary {
+    max-width: 100%;
+    max-height: 189px;
+    border: 1px solid #ECECEC;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.test {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-header {
+    background: var(--primary-orange-color);
+    height: 45px;
+    border-bottom: 1px solid #ECECEC;
+    color: #4E4E4E;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.content-header p {
+    margin: 0;
+    margin-left: 15px;
+    
+}
+
+.summary-text {
+    margin: 0.938rem;
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    line-height: 23px;
+    color: #5C5C5C;
+}
+
+.discussion {
+    margin-top: 30px;
 }
