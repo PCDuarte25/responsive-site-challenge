@@ -80,11 +80,6 @@
     margin-left: 1.5rem;
 }
 
-.hero-header {
-    margin: 0;
-    padding: 0;
-}
-
 .header-container {
     background: var(--primary-orange-color);
     display: flex;
@@ -92,7 +87,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
 
 .geral-info p {
     margin: 0;
@@ -195,6 +189,7 @@
 
 .user-login {
     position: relative;
+    margin-right: 10px;
 }
 
 .user-photo {
@@ -258,10 +253,6 @@
     color: var(--primary-orange-color-darker);
 }
 
-.detail-btn p:nth-child(2) {
-    display: none;
-}
-
 .detail-btn {
     width: auto;
     height: 1.93rem;
@@ -274,6 +265,10 @@
     font-weight: 500;
     font-size: 1rem;
     color: white;
+}
+
+.detail-btn p:nth-child(2) {
+    display: none;
 }
 
 .quote {
@@ -424,7 +419,7 @@
 
 .content-p2 {
     position: absolute;
-    bottom: 42px;
+    bottom: 60px;
     left: 132px;
 }
 
@@ -461,12 +456,6 @@
     border-radius: 3px;
     overflow: hidden;
     margin-top: 30px;
-}
-
-.test {
-    display: flex;
-    flex-direction: column;
-    max-height: 144px;
 }
 
 .content-header {
@@ -506,7 +495,7 @@
     color: var(--primary-orange-color-darker);
 }
 
-.testezao {
+.discussion-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -609,13 +598,6 @@
 
 .main-card {
     margin: 1.063rem 1.448rem 1.125rem 1.511rem;
-}
-
-.container-discussion {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .cards-discussion {
