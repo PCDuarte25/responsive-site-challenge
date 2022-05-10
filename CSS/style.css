@@ -14,7 +14,6 @@
 
 .side-menu {
     width: 13.75rem;
-    height: 100%;
     display: flex;
     flex-direction: column;
     background: white;
@@ -236,7 +235,7 @@
     flex-direction: row;
     justify-content: end;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 8px;
 }
 
 .hero-main-title {
@@ -279,10 +278,9 @@
 }
 
 .details {
-    margin-top: 8px;
     border: 1px solid #ECECEC;
     border-radius: 3px;
-    height: 439px;
+    height: 437px;
 }
 
 .details-header {
@@ -361,7 +359,13 @@
     height: 367px;
 }
 
+.video-presentation{
+    width: 783px;
+    height: 439px;
+}
+
 .video {
+    margin-top: 19px;
     position: relative;
     background: rgba(141, 54, 6, 0.5);
     border-radius: 3px;
@@ -471,9 +475,15 @@
 
 }
 
+.testezao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .discussion {
     margin-top: 30px;
-    max-width: 100%;
+    max-width: 1080px;
     border: 1px solid #ECECEC;
     border-radius: 3px;
 }
@@ -524,4 +534,136 @@
     font-size: 15px;
     text-align: center;
     color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion-btn p {
+    margin: 0;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+.plus-x {
+    background: #FFFFFF;
+    height: 17px;
+    width: 3px;
+    border-radius: 1px;
+    margin-right: 12px;
+    position: relative;
+}
+
+.plus-y {
+    background: #FFFFFF;
+    height: 3px;
+    width: 17px;
+    border-radius: 1px;
+    position: absolute;
+    left: -7px;
+    top: 7px;
+}
+
+.line {
+    width: 1027px;
+    height: 1px;
+    background: #E7E7E7;
+    position: absolute;
+    z-index: -1;
+}
+
+.main-card {
+    margin: 17px 23.17px 18px 24.17px;
+}
+
+.container-discussion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-discussion {
+    width: 1028px;
+    margin: 15px 15px 17px;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+}
+
+.cards-header p:nth-child(1) {
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--primary-orange-color-darker);
+    margin-bottom: 3px;
+}
+
+.cards-header p:nth-child(2) {
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #5C5C5C;
+}
+
+.cards-body p {
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #4D4D4D;
+}
+
+.cards-footer {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.cards-footer p:nth-child(1) {
+    color: var(--primary-orange-color-darker);
+    font-size: 1.5em;
+}
+
+.cards-footer p:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 27px;
+    height: 19px;
+    font-size: 0.75em;
+    color: #FFFFFF;
+    background: var(--primary-orange-color-darker);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 2px;
+}
+
+.cards-footer p:nth-child(n+3):nth-child(-n+4) {
+    font-family: 'Segoe UI', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #757575;
+}
+
+.hero-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 46px 0px 14px;
+}
+
+.footer-img {
+    width: 1086px;
+    height: 181px;
 }
