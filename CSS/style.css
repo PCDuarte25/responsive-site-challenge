@@ -7,6 +7,12 @@
     margin: 0;
 }
 
+body {
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 .grid {
     display: grid;
     grid-template-columns: 13.75rem 1fr;
@@ -269,6 +275,10 @@
 
 .detail-btn p:nth-child(2) {
     display: none;
+}
+
+.doi-img {
+    margin-top: 3px;
 }
 
 .quote {
@@ -541,6 +551,12 @@
     color: #595959;
 }
 
+.btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
+}
+
 .discussion-btn {
     width: 8.313rem;
     height: 2rem;
@@ -559,14 +575,16 @@
     align-items: center;
 }
 
-.discussion-btn p {
-    margin: 0;
+.line {
+    width: 64.188rem;
+    height: 1px;
+    background: #E7E7E7;
+    position: absolute;
+    z-index: -1;
 }
 
-.btn {
-    display: flex;
-    justify-content: center;
-    margin-top: 14px;
+.discussion-btn p {
+    margin: 0;
 }
 
 .plus-x {
@@ -586,14 +604,6 @@
     position: absolute;
     left: -7px;
     top: 7px;
-}
-
-.line {
-    width: 64.188rem;
-    height: 1px;
-    background: #E7E7E7;
-    position: absolute;
-    z-index: -1;
 }
 
 .main-card {
