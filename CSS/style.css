@@ -651,6 +651,7 @@ body {
     display: flex;
     gap: 0.938rem;
     align-items: center;
+    margin-bottom: 1.125rem;
 }
 
 .cards-footer p:nth-child(1) {
@@ -693,6 +694,7 @@ body {
 }
 
 .answers-container {
+    display: none;
     margin-top: 1.125rem;
     margin-left: -1.125rem;
     margin-right: -1.125rem;

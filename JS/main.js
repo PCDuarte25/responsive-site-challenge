@@ -1,5 +1,7 @@
 (function(){
     const summary = document.querySelector('.summary-text');
+    const cardsDiscussion = document.querySelectorAll('.cards-discussion');
+    const answers = document.querySelector('.answers-container');
     
     const fullText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae turpis auctor, mollis felis ut, commodo turpis. Phasellus felis mauris, egestas eget cursus et, iaculis quis lacus. Fusce auctor eros sed magna ultricies gravida. Etiam aliquam dictum nisl, vel aliquet enim accumsan sit amet. Donec finibus nisi tellus, ut viverra lorem vestibulum ut. Phasellus condimentum orci id leo condimentum lobortis et non lorem. Sed id nisl metus. Quisque sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. 
 <br><br>
@@ -19,8 +21,9 @@ sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. Etiam ali
     nisl, vel aliquet enim accumsan sit ametl accumsant... <b class="show-more">ver mais</b>`
 
     let isExpanded = false;
+    let isShown = false;
 
-    function expandOrReduceText () {
+    function expandOrReduceText() {
         if (!isExpanded) {
             summary.innerHTML = fullText;
             isExpanded = true;
@@ -30,5 +33,19 @@ sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. Etiam ali
         }   
     }
 
+    function showAnswers() {
+        if (!isShown){
+            answers.style.display = 'block';
+            isShown = true;
+        } else {
+            answers.style.display = 'none';
+            isShown = false;
+        }
+    }
+
     summary.addEventListener('click', expandOrReduceText);
+
+    cardsDiscussion[1].addEventListener('click', showAnswers);
+
+
 })()
