@@ -606,7 +606,9 @@ body {
 }
 
 .main-card {
-    margin: 1.063rem 1.448rem 1.125rem 1.511rem;
+    /* margin: 1.063rem 1.448rem 1.125rem 1.511rem; */
+    padding: 1.125rem;
+    padding-bottom: 0;
 }
 
 .cards-discussion {
@@ -688,4 +690,91 @@ body {
 .footer-img {
     width: 67.875rem;
     height: 11.313rem;
+}
+
+.answers-container {
+    margin-top: 1.125rem;
+    margin-left: -1.125rem;
+    margin-right: -1.125rem;
+}
+
+.answers-title {
+    display: flex;
+}
+
+.container-author {
+    display: flex;
+    gap: 2.067rem;
+    margin-right: 23.19px;
+}
+
+.container-name {
+    flex: 1 0;
+}
+
+.answers-author {
+    padding: 1.125rem;
+    background: #F8F8F8;
+    border-top: 1px solid #E7E7E7;
+    border-bottom: 1px solid #E7E7E7;
+    border-radius: 0px;
+}
+
+.answers-current-name {
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: #5C5C5C;
+}
+
+.answers-comment {
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #4D4D4D;
+    margin-bottom: 1.063rem;
+}
+
+.p-rank {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--primary-orange-color-darker);    
+}
+
+.fa-check-double {
+    color: var(--primary-orange-color-darker);
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: 900;
+    display: block;
+}
+
+.answers-owner-comment {
+    padding: 1.125rem;
+    border-bottom: 1px solid #E7E7E7;
+    border-radius: 0px;
+}
+
+.answers-comment-diff {
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #4D4D4D;
+    margin-top: 0.5rem;
+}
+
+.answers-coauthor {
+    padding: 1.125rem;
+    background: #F8F8F8;
+    border-bottom: 1px solid #E7E7E7;
+    border-radius: 0px;
 }
