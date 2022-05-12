@@ -1,108 +1,34 @@
 (function(){
-    const summary = document.querySelector('.summary-text');
-    const cardsDiscussion = document.querySelectorAll('.cards-discussion');
-    const answers = document.querySelector('.answers-container');
-    const cardsBody = document.querySelectorAll('.cards-body'); 
-    const cardsFooter = document.querySelectorAll('.cards-footer')[1];
-    const elements = document.querySelectorAll('.btn-text-editor');
-    const discussionAddNewTopic = document.querySelector('.discussion-new-topic')
-    const buttonNewTopic = document.querySelector('.btn-new-topic');
-    const discussionNewTopic = document.querySelector('.new-topic');
-    const content = document.querySelector('.content');
-    const buttonSendTopic = document.querySelector('.btn-send');
-    const cardBlur = document.querySelector('.cards-discussion-blur');
-    const discussionTopicSent = document.querySelector('.discussion-topic-sent');
-    const buttonAnotherTopic = document.querySelector('.discussion-btn-another-topic');
-
-    const summaryFullText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae turpis auctor, mollis felis ut, commodo turpis. Phasellus felis mauris, egestas eget cursus et, iaculis quis lacus. Fusce auctor eros sed magna ultricies gravida. Etiam aliquam dictum nisl, vel aliquet enim accumsan sit amet. Donec finibus nisi tellus, ut viverra lorem vestibulum ut. Phasellus condimentum orci id leo condimentum lobortis et non lorem. Sed id nisl metus. Quisque sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. 
-<br><br>
-Fusce vitae luctus dui. Donec id euismod mauris, in volutpat urna. Proin dapibus consequat feugiat. Proin dictum justo arcu, quis vestibulum augue lacinia quis. Sed dignissim dui nulla, ut faucibus mauris sodales id. Aliquam erat volutpat. Maecenas dolor enim, tincidunt id elit non, suscipit interdum turpis. Etiam finibus urna libero, eget interdum eros volutpat ullamcorper. Pellentesque et pretium lorem. Aenean interdum quis diam ac porttitor. Cras nec ipsum pulvinar, pharetra libero non, ornare enim. Etiam in laoreet odio. 
-<br><br>
-Nam eget tristique elit, at fermentum tellus. Mauris scelerisque ligula id eleifend feugiat. Donec eleifend vehicula sem nec dapibus. Integer scelerisque neque dui, in lacinia erat molestie eu. Phasellus maximus dui eget lacus porta tempor. Ut ex nibh, dignissim quis purus semper, efficitur facilisis turpis. Praesent blandit elementum ultricies. Aliquam sit amet enim sit amet nulla pulvinar lobortis consectetur non odio. Phasellus at lacus hendrerit, vulputate nisi sit amet, viverra mauris. Etiam eu scelerisque orci. Quisque sagittis, mi vitae pharetra iaculis, orci elit eleifend massa, eu posuere mauris odio id odio. Morbi eu libero luctus, consectetur lorem vel, interdum sapien. Aenean in porta arcu. Maecenas eu maximus massa. 
-<br><br>
+    const summaryFullText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae turpis auctor, mollis felis ut, commodo turpis. Phasellus felis mauris, egestas eget cursus et, iaculis quis lacus. Fusce auctor eros sed magna ultricies gravida. Etiam aliquam dictum nisl, velaliquet enim accumsan sit amet. Donec finibus nisi tellus, ut viverra lorem vestibulum ut. Phasellus condimentum orci id leo condimentum lobortis et non lorem. Sed id nisl metus. Quisque sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. 
+    <br><br>
+    Fusce vitae luctus dui. Donec id euismod mauris, in volutpat urna. Proin dapibus consequat feugiat. Proin dictum justo arcu, quis vestibulum augue lacinia quis. Sed dignissim dui nulla, ut faucibus mauris sodales id. Aliquam erat volutpat. Maecenas dolor enim, tincidunt id elit non, suscipit interdum turpis. Etiam finibus urna libero, eget interdum eros volutpat ullamcorper. Pellentesque et pretium lorem. Aenean interdum quis diam ac porttitor. Cras nec ipsum pulvinar, pharetra libero non, ornare enim. Etiam in laoreet odio. 
+    <br><br>
+    Nam eget tristique elit, at fermentum tellus. Mauris scelerisque ligula id eleifend feugiat. Donec eleifend vehicula sem nec dapibus. Integer scelerisque neque dui, in lacinia erat molestie eu. Phasellus maximus dui eget lacus porta tempor. Ut ex nibh, dignissim quis purus semper, efficitur facilisis turpis. Praesent blandit elementum ultricies. Aliquam sit amet enim sit amet nulla pulvinar lobortis consectetur non odio. Phasellus at lacus hendrerit, vulputate nisi sit amet, viverra mauris. Etiam eu scelerisque orci. Quisque sagittis, mi vitae pharetra iaculis, orci elit eleifend massa, eu posuere mauris odio id odio. Morbi eu libero luctus, consectetur lorem vel, interdum sapien. Aenean in porta arcu. Maecenas eu maximus massa. 
+    <br><br>
     Praesent velit dolor, dignissim sed quam ac, efficitur porta justo. Pellentesque porta pharetra felis ut hendrerit. Nulla facilisi. Aliquam erat volutpat. Nunc sit amet faucibus quam. Maecenas dapibus luctus dolor at viverra. Duis nec fringilla libero. Duis risus nibh, viverra ac orci nec, iaculis dictum sem. Aliquam at malesuada arcu. Aliquam erat volutpat. Donec varius ipsum purus, ut vehicula purus placerat vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
-    const summarySliceText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae turpis auctor,
-mollis felis ut, commodo turpis. Phasellus felis mauris, egestas eget cursus et, iaculis
-quis lacus. Fusce auctor eros sed magna ultricies gravida. Etiam aliquam dictum nisl, vel
-aliquet enim accumsan sit amet. Donec finibus nisi tellus, ut viverra lorem vestibulum ut.
-Phasellus condimentum orci id leo condimentum lobortis et non lorem. Sed id nisl metus.
-Quisque sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum Phasellus
-condimentum orci id leo condimentum lobortis et non lorem. Sed id nisl metus. Quisque
-sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. Etiam aliquam dictum
-    nisl, vel aliquet enim accumsan sit ametl accumsant... <b class="show-more">ver mais</b>`
+    const summarySliceText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae turpis auctor, mollis felis ut, commodo turpis. Phasellus felis mauris, egestas eget cursus et, iaculis quis lacus. Fusce auctor eros sed magna ultricies gravida. Etiam aliquam dictum nisl, velaliquet enim accumsan sit amet. Donec finibus nisi tellus, ut viverra lorem vestibulum ut. Phasellus condimentum orci id leo condimentum lobortis et non lorem. Sed id nisl metus. Quisque sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum Phasellus condimentum orci id leo condimentum lobortis et non lorem. Sed id nisl metus. Quisque sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. Etiam aliquam dictumnisl, vel aliquet enim accumsan sit ametl accumsant... <b class="show-more">ver mais</b>`
 
     const commentFullText = `<p>Comecinho da pergunta aparece aqui resente relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo resente relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo?</p><br>`
     const commentSliceText = `<p>Comecinho da pergunta aparece aqui resente relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo...</p>`
 
-    let isExpandedSummary = false;
-    let isShownAnswer = false;
+    const summary = document.querySelector('.summary-text'); 
+    const summaryObject = new Summary(summary, summaryFullText, summarySliceText, false);
+    summaryObject.addEventListener();
 
-    function showNewTopic() {
-        discussionAddNewTopic.style.display = 'none';
-        discussionNewTopic.style.display = 'block';
-    }
+    const mainCard = document.querySelectorAll('.main-card')[2]
+    const cardObject = new Card (mainCard, commentFullText, commentSliceText, false);
+    cardObject.addEventListener();
 
-    function expandOrReduceSummary() {
-        if (isExpandedSummary) {
-            summary.innerHTML = summaryFullText
-            isExpandedSummary = false;
-        } else {
-            summary.innerHTML = summarySliceText;
-            isExpandedSummary = true;
-        }   
-    }
+    const discussionAddNewTopic = document.querySelector('.discussion-new-topic')
+    const discussionNewTopic = document.querySelector('.new-topic')
+    const newTopicScreen = new CreateNewTopicScreen (discussionAddNewTopic, discussionNewTopic);
+    newTopicScreen.addEventListener();
 
-    function getLikeParagraph (cardFooter) {
-        return cardFooter.querySelectorAll('p')[2];
-    }
+    const discussionTopicSent = document.querySelector('.discussion-topic-sent');
+    const cardBlur = document.querySelector('.cards-discussion-blur');
+    const newEditTopicScreen = new EditTopicScreen(discussionNewTopic, cardBlur, discussionTopicSent);
+    newEditTopicScreen.addEventListeners();
 
-    function getAnswerParagraph (cardFooter) {
-        return cardFooter.querySelectorAll('p')[3];
-    }
-
-    function showOrHideAnswers() {
-        if (isShownAnswer) {
-            answers.style.display = 'none';
-            isShownAnswer = false;
-            getLikeParagraph(cardsFooter).textContent = '1 like';
-            getAnswerParagraph(cardsFooter).textContent = '1 reposta';
-            cardsBody[1].innerHTML = commentSliceText;
-        } else {
-            answers.style.display = 'block';
-            isShownAnswer = true;
-            getLikeParagraph(cardsFooter).textContent = '4 likes';
-            getAnswerParagraph(cardsFooter).textContent = '4 repostas';
-            cardsBody[1].innerHTML = commentFullText;
-        }
-    }
-
-    function showTopicSent() {
-        cardBlur.style.display = 'block';
-        discussionNewTopic.style.display = 'none';
-        discussionTopicSent.style.display = 'flex';
-    }
-
-    function anotherTopic() {
-        cardBlur.style.display = 'none';
-        discussionNewTopic.style.display = 'block';
-        discussionTopicSent.style.display = 'none';
-    }
-
-    elements.forEach(element => {
-        element.addEventListener('click', () => {
-            let command = element.dataset['element'];
-            document.execCommand(command, false, null);
-            content.focus();
-        });
-    });
-
-    summary.addEventListener('click', expandOrReduceSummary);
-
-    buttonNewTopic.addEventListener('click', showNewTopic)
-
-    cardsDiscussion[1].addEventListener('click', showOrHideAnswers);
-
-    buttonSendTopic.addEventListener('click', showTopicSent)
-
-    buttonAnotherTopic.addEventListener('click', anotherTopic)
+    const newAnotherTopicScreen = new CreateAnotherTopicScreen(discussionTopicSent, cardBlur, discussionNewTopic);
+    newAnotherTopicScreen.addEventListener();
 })()
