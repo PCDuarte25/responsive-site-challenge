@@ -10,7 +10,7 @@
 body {
     height: 100vh;
     width: 100%;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 .grid {
@@ -555,14 +555,15 @@ body {
 }
 
 .main-content-text-editor {
-    height: 7.063rem;
-    background: red;
+    min-height: 7.063rem;
+    max-width: 1018px;
     margin: 0px 0.938rem 1.063rem;
     background: #FFFFFF;
     border: 1px solid #CCCCCC;
     border-radius: 3px;
     position: relative;
-    box-sizing: border-box;
+    padding-bottom: 0px;
+    padding-right: 10px;
 }
 
 .topic-title {
@@ -611,7 +612,6 @@ body {
 .text-editor-footer {
     height: 1.938rem;
     width: 100%;
-    bottom: 0;
     background: #EAF1F2;
     border-top: 1px solid #CCCCCC;
     border-radius: 0px 0px 4px 4px;
@@ -626,7 +626,6 @@ body {
     border-top: 1px solid #CCCCCC;
     border-radius: 0px 0px 4px 4px;
     display: flex;
-    flex-direction: row;
     gap: 30.84px;
     align-items: center;
 }
@@ -637,7 +636,6 @@ body {
     color: #474747;
     width: 12.34px;
     height: 10px;
-    padding: 0;
     margin-left: 29.3px;
     margin-bottom: 5px;
     cursor: pointer;
@@ -662,7 +660,7 @@ body {
 }
 
 .content {
-    min-height: 82px;
+    border: none;
     outline: none;
     margin-left: 10px;
     margin-top: 5px;
