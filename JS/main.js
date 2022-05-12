@@ -3,18 +3,17 @@
     const cardsDiscussion = document.querySelectorAll('.cards-discussion');
     const answers = document.querySelector('.answers-container');
     const cardsBody = document.querySelectorAll('.cards-body'); 
-    const cardsFooterParagraph = document.querySelectorAll('.cards-footer')[1].querySelectorAll('p');
+    const cardsFooter = document.querySelectorAll('.cards-footer')[1];
     const elements = document.querySelectorAll('.btn-text-editor');
     const discussionAddNewTopic = document.querySelector('.discussion-new-topic')
     const buttonNewTopic = document.querySelector('.btn-new-topic');
     const discussionNewTopic = document.querySelector('.new-topic');
     const content = document.querySelector('.content');
-    const buttonSend = document.querySelector('.btn-send');
+    const buttonSendTopic = document.querySelector('.btn-send');
     const cardBlur = document.querySelector('.cards-discussion-blur');
     const discussionTopicSent = document.querySelector('.discussion-topic-sent');
     const buttonAnotherTopic = document.querySelector('.discussion-btn-another-topic');
 
-    
     const summaryFullText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae turpis auctor, mollis felis ut, commodo turpis. Phasellus felis mauris, egestas eget cursus et, iaculis quis lacus. Fusce auctor eros sed magna ultricies gravida. Etiam aliquam dictum nisl, vel aliquet enim accumsan sit amet. Donec finibus nisi tellus, ut viverra lorem vestibulum ut. Phasellus condimentum orci id leo condimentum lobortis et non lorem. Sed id nisl metus. Quisque sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. 
 <br><br>
 Fusce vitae luctus dui. Donec id euismod mauris, in volutpat urna. Proin dapibus consequat feugiat. Proin dictum justo arcu, quis vestibulum augue lacinia quis. Sed dignissim dui nulla, ut faucibus mauris sodales id. Aliquam erat volutpat. Maecenas dolor enim, tincidunt id elit non, suscipit interdum turpis. Etiam finibus urna libero, eget interdum eros volutpat ullamcorper. Pellentesque et pretium lorem. Aenean interdum quis diam ac porttitor. Cras nec ipsum pulvinar, pharetra libero non, ornare enim. Etiam in laoreet odio. 
@@ -36,8 +35,7 @@ sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. Etiam ali
     const commentSliceText = `<p>Comecinho da pergunta aparece aqui resente relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo...</p>`
 
     let isExpandedSummary = false;
-    let isExpandedAnswer = false;
-    let isShown = false;
+    let isShownAnswer = false;
 
     function showNewTopic() {
         discussionAddNewTopic.style.display = 'none';
@@ -45,38 +43,36 @@ sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. Etiam ali
     }
 
     function expandOrReduceSummary() {
-        if (!isExpandedSummary) {
-            summary.innerHTML = summarySliceText;
-            isExpandedSummary = true;
-        } else {
+        if (isExpandedSummary) {
             summary.innerHTML = summaryFullText
             isExpandedSummary = false;
+        } else {
+            summary.innerHTML = summarySliceText;
+            isExpandedSummary = true;
         }   
     }
 
-    function expandOrReduceAnswer() {
-        if (!isExpandedAnswer) {
-            cardsBody[1].innerHTML = commentFullText;
-            isExpandedAnswer = true;
-        } else {
-            cardsBody[1].innerHTML = commentSliceText
-            isExpandedAnswer = false;
-        }   
+    function getLikeParagraph (cardFooter) {
+        return cardFooter.querySelectorAll('p')[2];
     }
 
-    function showAnswers() {
-        expandOrReduceAnswer()
-        
-        if (!isShown) {
-            answers.style.display = 'block';
-            isShown = true;
-            cardsFooterParagraph[2].textContent = '4 likes';
-            cardsFooterParagraph[3].textContent = '4 repostas';
-        } else {
+    function getAnswerParagraph (cardFooter) {
+        return cardFooter.querySelectorAll('p')[3];
+    }
+
+    function showOrHideAnswers() {
+        if (isShownAnswer) {
             answers.style.display = 'none';
-            isShown = false;
-            cardsFooterParagraph[2].textContent = '1 like';
-            cardsFooterParagraph[3].textContent = '1 reposta';
+            isShownAnswer = false;
+            getLikeParagraph(cardsFooter).textContent = '1 like';
+            getAnswerParagraph(cardsFooter).textContent = '1 reposta';
+            cardsBody[1].innerHTML = commentSliceText;
+        } else {
+            answers.style.display = 'block';
+            isShownAnswer = true;
+            getLikeParagraph(cardsFooter).textContent = '4 likes';
+            getAnswerParagraph(cardsFooter).textContent = '4 repostas';
+            cardsBody[1].innerHTML = commentFullText;
         }
     }
 
@@ -93,7 +89,7 @@ sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. Etiam ali
     }
 
     elements.forEach(element => {
-        element.addEventListener('click', (e) => {
+        element.addEventListener('click', () => {
             let command = element.dataset['element'];
             document.execCommand(command, false, null);
             content.focus();
@@ -104,10 +100,9 @@ sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. Etiam ali
 
     buttonNewTopic.addEventListener('click', showNewTopic)
 
-    cardsDiscussion[1].addEventListener('click', showAnswers);
+    cardsDiscussion[1].addEventListener('click', showOrHideAnswers);
 
-    buttonSend.addEventListener('click', showTopicSent)
+    buttonSendTopic.addEventListener('click', showTopicSent)
 
     buttonAnotherTopic.addEventListener('click', anotherTopic)
-
 })()
