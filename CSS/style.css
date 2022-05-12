@@ -19,6 +19,10 @@ body {
     grid-template-columns: 13.75rem 1fr;
 }
 
+.side-menu-container {
+    position: fixed;
+}
+
 .side-menu {
     width: 13.75rem;
     display: flex;
