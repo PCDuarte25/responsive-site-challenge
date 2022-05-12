@@ -4,6 +4,11 @@
     const answers = document.querySelector('.answers-container');
     const cardsBody = document.querySelectorAll('.cards-body'); 
     const cardsFooterParagraph = document.querySelectorAll('.cards-footer')[1].querySelectorAll('p');
+    const elements = document.querySelectorAll('.btn-text-editor');
+    const discussionAddNewTopic = document.querySelector('.discussion-new-topic')
+    const buttonNewTopic = document.querySelector('.btn-new-topic');
+    const discussionNewTopic = document.querySelector('.new-topic')
+
     
     const summaryFullText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae turpis auctor, mollis felis ut, commodo turpis. Phasellus felis mauris, egestas eget cursus et, iaculis quis lacus. Fusce auctor eros sed magna ultricies gravida. Etiam aliquam dictum nisl, vel aliquet enim accumsan sit amet. Donec finibus nisi tellus, ut viverra lorem vestibulum ut. Phasellus condimentum orci id leo condimentum lobortis et non lorem. Sed id nisl metus. Quisque sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. 
 <br><br>
@@ -28,6 +33,11 @@ sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. Etiam ali
     let isExpandedSummary = false;
     let isExpandedAnswer = false;
     let isShown = false;
+
+    function showNewTopic() {
+        discussionAddNewTopic.style.display = 'none';
+        discussionNewTopic.style.display = 'block';
+    }
 
     function expandOrReduceSummary() {
         if (!isExpandedSummary) {
@@ -65,7 +75,16 @@ sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum. Etiam ali
         }
     }
 
+    elements.forEach(element => {
+        element.addEventListener('click', () => {
+            let command = element.dataset['element'];
+            document.execCommand(command, false, null);
+        });
+    });
+
     summary.addEventListener('click', expandOrReduceSummary);
+
+    buttonNewTopic.addEventListener('click', showNewTopic)
 
     cardsDiscussion[1].addEventListener('click', showAnswers);
 
